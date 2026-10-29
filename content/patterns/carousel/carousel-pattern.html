@@ -49,6 +49,7 @@
                 It does not restart unless the user explicitly requests it to do so.
               </li>
               <li>Stops rotating whenever the mouse is hovering over the carousel.</li>
+              <li>Does not start rotating automatically when the user has indicated a preference for reduced motion, e.g., via the <a href="https://www.w3.org/TR/mediaqueries-5/#prefers-reduced-motion"><code>prefers-reduced-motion</code></a> media feature, and stops rotating if that preference changes while the carousel is rotating.</li>
             </ul>
           </li>
         </ul>
@@ -134,6 +135,7 @@
             Note that since the label changes, the rotation control does not have any states, e.g., <code>aria-pressed</code>, specified.
           </li>
           <li>Each slide container has role <a href="#group" class="role-reference">group</a> with the property <a href="#aria-roledescription" class="property-reference">aria-roledescription</a> set to <code>slide</code>.</li>
+          <li>Each slide container that is not currently displayed, including any slide that is only partially visible, has the <code>inert</code> attribute. This removes the slide’s content from both the accessibility tree and the page <code>Tab</code> sequence. Note: if slides that are not displayed remain reachable, screen reader and keyboard users can move into content they cannot see, which makes the carousel cumbersome and disorienting to navigate.</li>
           <li>
             Each slide has an accessible name:
             <ul>
